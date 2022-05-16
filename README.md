@@ -9,8 +9,14 @@ Components
   - Benefits
 
 - Project
+
   - Accepting payment
   - Payout
+
+- Avatar
+
+  - Proposals
+  - Voting
 
 UI
 
