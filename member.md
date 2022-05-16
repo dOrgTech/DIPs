@@ -12,6 +12,10 @@ A Member NFT is an ERC721 with the following changes:
 - A Member NFT can only be transferred via:
   - **Request transfer** of ownership by the Member NFT owner -> the contract owner approves the transfer, used when a member wants to move its Member NFT to a different address.
   - **Force transfer**, used in emergencies where the member is no longer in control of the address owning the Member NFT. This is only callable by the contract owner. _I am unsure about this; I don't think it's optimal that the owner (DAO) can "take" a Member from an owner._
+- Payouts to members will be routed through the Member NFT (need to research specifics) and be marked with the project id - useful for accounting, automatic activity/inactivity status, and other tracking needs (past project/size of engagement).
+- The Member NFT owner should be able to route their payouts to any address (also contract addresses if they want).
+- The Member NFT can only accept payments from the Gnosis project safes in the registry of projects started by the DAO.
+- Rep accumulation could be implemented here or in the project payout Gnosis Safe module.
 
 #### Notes
 
