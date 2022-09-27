@@ -2,7 +2,7 @@
 
 Components
 
-- Member NFT (used as a index for all member functionality)
+- Member NFT (used as an index for all member functionality)
 
   - Badges
   - Rep
