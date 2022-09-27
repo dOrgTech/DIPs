@@ -13,7 +13,7 @@ Components
   - Accepting payment
   - Payout Modules (hourly, fixed, drips, superfluid)
 
-- Avatar / "The DAO"
+- Avatar / "The DAO" (main Safe)
 
   - Proposals
   - Voting
