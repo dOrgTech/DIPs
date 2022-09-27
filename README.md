@@ -2,23 +2,23 @@
 
 Components
 
-- Member
+- Member NFT (used as a index for all member functionality)
 
   - Badges
   - Rep
   - Benefits
 
-- Project
+- Project/Pods (minion Safes)
 
   - Accepting payment
-  - Payout
+  - Payout Modules (hourly, fixed, drips, superfluid)
 
-- Avatar
+- Avatar / "The DAO"
 
   - Proposals
   - Voting
 
 UI
 
-- Member Portal
-- Client Portal
+- Member Portal (Safe app)
+- Client Portal (Safe app)
