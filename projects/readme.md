@@ -21,4 +21,4 @@ The safe will be equipped with the following modules (during deployment, in the 
 1. A time lock with veto functionality for all transactions.
 2. A module that lets an address (the DAO avatar) bypass the owners to execute transactions.
 3. A module that updates the safe owners to the current holders of the Member NFTs for the members of the project. This module basically consists of a contract with an external function that can be called by anybody that will get the owners of the Member NFTs and update the safe owners as needed. This bypasses the current safe owners.
-4. A module for proposing payouts (hourly, fixed, etc.) via the Member NFT payout routing.
+4. A swapable module for proposing payouts (hourly, fixed, etc.) via the Member NFT payout routing.
