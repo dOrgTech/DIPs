@@ -12,7 +12,7 @@ A Member NFT is an ERC721 with the following changes:
 - A Member NFT can only be transferred via:
   - **Request transfer** of ownership by the Member NFT owner -> the contract owner approves the transfer, used when a member wants to move its Member NFT to a different address.
   - **Force transfer**, used in emergencies where the member is no longer in control of the address owning the Member NFT. This is only callable by the contract owner. _I am unsure about this; I don't think it's optimal that the owner (DAO) can "take" a Member from an owner._
-- Payouts to members will be routed through the Member NFT (need to research specifics) and be marked with the project id - useful for accounting, automatic activity/inactivity status, and other tracking needs (past project/size of engagement).
+- Payouts to members will happen via a Safe app that lets Member NFT holders withdraw payment (can also be done in batch) to the address spesified via the  Member NFT (external contract, not #part of# the Member NFT) and be marked with the project id - useful for accounting, automatic activity/inactivity status, and other tracking needs (past project/size of engagement).
 - The Member NFT owner should be able to route their payouts to any address (also contract addresses if they want).
 - The Member NFT can only accept payments from the Gnosis project safes in the registry of projects started by the DAO.
 - Rep accumulation could be implemented here or in the project payout Gnosis Safe module.
@@ -21,7 +21,7 @@ A Member NFT is an ERC721 with the following changes:
 
 - Member's status (active or non-active, etc.) is not a part of the Member NFT it selves. It can be implemented as an external registry contract.
 - The Member NFT will be the holder of the rep token (can be an ERC888) (does there exist an ERC for ERC721 owning ERC20 tokens? ERC998?).
-- Badges are not part of the Member NFT. It can be implemented as a separate ERC721 that can belong to a Member NFT (ERC998?).
+- Badges are not part of the Member NFT. It can be implemented as a separate ERC721 that can belong to a Member NFT (see ERC5114).
 - If we want to set other properties on a Member, this will be implemented as a separate contract. For instance, to allow the Member NFT owner to set properties on itself or let others (for instant, the ERC721 owner/DAO avatar) set properties.
 - The token URI can point to a subgraph that indexes the properties (from any external contracts/ registries), tokens, etc. owned by the Member NFT (that we want to show off).
 
