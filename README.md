@@ -4,7 +4,7 @@
 
 An unlimited extendable, and changeable DAO solution leveraging the Safe community.
 
-The DAO solution proposed will not be static; it will be a continually evolving creature inhabiting the dark forest. Since nobody knows the future evolution of this creature, we aim to create a solution that allows for maximum evolvement.
+The DAO solution proposed will not be static; it will be a continually evolving organism inhabiting the dark forest. Since nobody knows the future evolution of this organism, we aim to create a solution that allows for maximum evolvement.
 
 The core components are Passport, Main Safe, and Project Safe.
 
