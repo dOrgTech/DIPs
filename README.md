@@ -6,7 +6,7 @@ An unlimited extendable, and changeable DAO solution leveraging the Safe communi
 
 The DAO solution proposed will not be static; it will be a continually evolving organism inhabiting the dark forest. Since nobody knows the future evolution of this organism, we aim to create a solution that allows for maximum evolvement.
 
-The core components are Passport, Main Safe, and Project Safe.
+The core components are Passport, Main Safe, Project Safe, Project Safe Manager, and Payment Modules. These components forms a thin layer that can support the continued evolvement of the DAO. Components (even the core components) and modules can be removed, replaced, and new once added at any time in the form of a proposed transaction to the Main Safe. This has the great advantage that non of the contracts will need to be upgradeable.
 
 ## Passport
 
@@ -16,6 +16,7 @@ The Passport is an ERC721 contract that is owned by the Main Safe.
 
 - The transfer functions are disabled.
 - A `mint(to)` function is added. This can only be called by the Main Safe (owner). This will create a new Passport and set the to address as the owner.
+- A `batchMint(toArray)` function is added. This can only be called by the Main Safe (owner). This will create new Passports and set the toArray addresses as the owners.
 - A `initiateTransfer(passportId, to)` function is added. This can be called by the owner of the corresponding Passport. To initiate the process of changing the address owning the Passport.
 - A `finalizeTransfer(passportId, to)` function is added. This can be called a week (a specific number of blocks) after the `initiateTransfer` function to finalize the transfer. This functionality makes it possible for a Passport holder to move it to another address without the Main Safe having to intervene. However, in the case of an unauthorized move (for instance, if it is soled), the Main Safe has time to call the `forceTransfer` function before the transfer.
 - A `forceTransfer(passportId, to)` function that can only be called by the Main Safe. This can move any Passport to any address.
@@ -72,7 +73,7 @@ It also emits events that allow for easy accounting in for instance, a Subgraph.
 
 # Road map
 
-We will continue using the Safe we use today. Over time this Safe will morph into a fully on-chain DAO.
+We will continue using the Safe we use today as the Main Safe. Over time this Safe will morph into a fully on-chain DAO.
 
 Start:
 
