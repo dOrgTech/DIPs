@@ -15,13 +15,13 @@ The Passport is an ERC721 contract that is owned by the Main Safe.
 **Changes compared to a standard ERC721:**
 
 - The transfer functions are disabled.
-- A `mintPassport(to)` function is added. This can only be called by the Main Safe (owner). This will create a new Passport and set the to address as the owner.
-- A `requestTransfer(passportId, to)` function is added. This can be called by the owner of the corresponding Passport. To initiate the process of changing the address owning the Passport.
-- A `requestTransfer(passportId, to)` function is added. This can be called a week (a specific number of blocks) after the `requestTransfer` function to finalize the transfer. This functionality makes it possible for a Passport holder to move it to another address without the Main Safe having to intervene. However, in the case of an unauthorized move (for instance, if it is soled), the Main Safe has time to call the `forceTransfer` function.
+- A `mint(to)` function is added. This can only be called by the Main Safe (owner). This will create a new Passport and set the to address as the owner.
+- A `initiateTransfer(passportId, to)` function is added. This can be called by the owner of the corresponding Passport. To initiate the process of changing the address owning the Passport.
+- A `finalizeTransfer(passportId, to)` function is added. This can be called a week (a specific number of blocks) after the `initiateTransfer` function to finalize the transfer. This functionality makes it possible for a Passport holder to move it to another address without the Main Safe having to intervene. However, in the case of an unauthorized move (for instance, if it is soled), the Main Safe has time to call the `forceTransfer` function before the transfer.
 - A `forceTransfer(passportId, to)` function that can only be called by the Main Safe. This can move any Passport to any address.
 - A `burn(passportId)` function that can only be called by the Main Safe. This will burn a Passport.
 
-The Passport is the index for "everything". For instance, the Passport is used as the owner of:
+The Passport is the index for "everything" regarding a "member". For instance, the Passport is used as the owner of:
 
 - Badges (ERC5114)
 - Rep
