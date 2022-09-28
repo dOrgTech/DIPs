@@ -35,38 +35,38 @@ Projects are represented by a Safe with some specific functionality.
 - It can accept payment from customers.
 - It has a timelock on all transactions (for instance, two days).
 - The Main Safe can veto any transaction.
-- The Safe's owners (signers) are the addresses currently holding the Passport. This can be updated at any time by calling a `updateOwners(safe)` function on the Project Safe Factory.
-- It points to a Payout Modules (hourly, fixed, drips, superfluid) that must be enabled as a Safe Module on the Main Safe.
+- The Safe's owners (signers) are the addresses currently holding the Passports added to the Project Safe. This can be updated at any time by calling a `updateOwners(projectSafe)` function on the Project Safe Manager.
+- It points to a Payout Module (hourly, fixed, drips, superfluid) that must be enabled as a Safe Module on the Main Safe.
 - Other project details are handled by separate contracts using the Project Safe's address as the key.
 
 ### Project Safe Manager
 
-This is a contract that the Main Safe can use to:
+The Project Safe Manager is a contract that the Main Safe can use to:
 
 - Create new Project Safes - this requires a list of Passport IDs to set as the owners and the address of a Payment Module to use for payment distribution.
 - Dismantle the Project Safe.
 
-This can be used by the Project Safe to:
+The Project Safe Manger can be used by the Project Safe to:
 
 - Change the Payout Module.
-- Dismantle the Project Safe
+- Dismantle the Project Safe.
 
-It can be used by anybody to:
+The Project Safe Manager can be used by anybody to:
 
-- Update the current owners of a Project Safe.
+- Update the current owners of a Project Safe. Refetch the addresses holding the Passports in case the Passports are moved.
 - View the list of Project Safes created by this Project Safe Manager.
 
 ## Main Safe
 
 The Main Safe is the Safe we use today.
 
-The Main Safe has the [Usul Module](https://github.com/SekerDAO/Usul) enabled. This module will let us propose transactions to the Main Safe and vote on them (based on Rep).
+The Main Safe has the [Usul Module](https://github.com/SekerDAO/Usul) enabled. This module will let us propose transactions to the Main Safe and vote on them (based on Rep). This will also allow us to swap out the voting mechanism later, if needed.
 
 ### Payout Modules
 
-A Payment Module is a Safe Module that is enabled on the Main Safe.
+A Payment Module is a Safe Module that is enabled on the Main Safe and on Project Safes that use it.
 
-A Payment Module is used by the Project Safe when distributing payments to the Passport holders working on a project. The Payment Module is responsible for collecting the Main Safes' share of the payment and distributing Rep accordingly.
+A Payment Module is used by the Project Safe when distributing payments to the Passport holders working on a project. The Payment Module is responsible for collecting the Main Safes' share of the payment, distributing payment to project builders (based on Passport holders or whats specified in a registry to be the Passports payout address) and distributing Rep accordingly.
 
 It also emits events that allow for easy accounting in for instance, a Subgraph.
 
