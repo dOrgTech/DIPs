@@ -1,12 +1,26 @@
-# dOrg-primitives
+# dOrg on-chain
 
-# Core Components
+## Abstract
 
-An unlimited extendable, and changeable DAO solution leveraging the Safe community.
+An unlimited extendable, and changeable DAO solution leveraging the Safe ecosystem.
 
-The DAO solution proposed will not be static; it will be a continually evolving organism inhabiting the dark forest. Since nobody knows the future evolution of this organism, we aim to create a solution that allows for maximum evolvement.
+The DAO solution proposed is not static; it is a continually evolving organism inhabiting the dark forest. Since nobody knows the future evolution of this organism, we aim for a solution that allows for maximum evolvement.
 
-The core components are Passport, Main Safe, Project Safe, Project Safe Manager, and Payment Modules. These components forms a thin layer that can support the continued evolvement of the DAO. Components (even the core components) and modules can be removed, replaced, and new once added at any time in the form of a proposed transaction to the Main Safe. This has the great advantage that non of the contracts will need to be upgradeable.
+In addition to an initial starting point for the DAO, the dOrg Primitives, we propose the DAO/dOrg Improvement Proposals (DIP) standard. The DIP will support the DAO's continued evolvement in standardizing how we suggest changes to the DAO structure.
+
+The suggested core dOrg Primitives are Passport, Main Safe, Project Safe, Project Safe Manager, and Payment Modules. These components forms a thin layer that can support the continued evolvement of the DAO. Components (even the core components) and modules can be removed, replaced, and new once added at any time in the form of a proposed transaction to the Main Safe (or for things specific to a Project Safe, the relevant Project Safe, not all Project Safes needs to be the same). This has the great advantage that non of the contracts will need to be upgradeable.
+
+Also, as the DAO space evolves, it will be easy for us to start using and integrating with new solutions, and discard others.
+
+## DAO Improvement Proposals (DIP)
+
+In order for dORg to be in the for front of DAO landscape we want to propose setting up a standardized process for evolving the DAO.
+
+Standardize the way we evolve the DAO. A structure for how to handle the evolvement of the DAO. This should make it easier for members to propose changes, take into account the impacts on the DAO adn its members etc.
+
+Also, each DIP should be made public after an initial round of internal discussions. So that the world can see what we are working on even if it does not pass voting. This could also help us display our DAO expertise to potential clients and others.
+
+# dOrg Primitives
 
 ## Passport
 
@@ -14,19 +28,21 @@ The Passport is an ERC721 contract that is owned by the Main Safe.
 
 **Changes compared to a standard ERC721:**
 
-- The transfer functions are disabled.
+- The transfer functions are guarded by the `onlyOwner` modifier. This means that only the Main Safe can call the basic transfer functions.
 - A `mint(to)` function is added. This can only be called by the Main Safe (owner). This will create a new Passport and set the to address as the owner.
 - A `batchMint(toArray)` function is added. This can only be called by the Main Safe (owner). This will create new Passports and set the toArray addresses as the owners.
 - A `initiateTransfer(passportId, to)` function is added. This can be called by the owner of the corresponding Passport. To initiate the process of changing the address owning the Passport.
 - A `finalizeTransfer(passportId, to)` function is added. This can be called a week (a specific number of blocks) after the `initiateTransfer` function to finalize the transfer. This functionality makes it possible for a Passport holder to move it to another address without the Main Safe having to intervene. However, in the case of an unauthorized move (for instance, if it is soled), the Main Safe has time to call the `forceTransfer` function before the transfer.
 - A `forceTransfer(passportId, to)` function that can only be called by the Main Safe. This can move any Passport to any address.
 - A `burn(passportId)` function that can only be called by the Main Safe. This will burn a Passport.
+- A `updateBaseUri(string)` function for setting the base resolution path for updating for instance a Subgraph endpoint that serves the NFT metadata complying with the ERC721 spec (for us to specify how it should show up in "NFT explorers").
 
 The Passport is the index for "everything" regarding a "member". For instance, the Passport is used as the owner of:
 
 - Badges (ERC5114)
 - Rep
-- Registries (like member details)
+- Registries (like member details), can point to both on-chain and off chain stuff, like IPFS, IPNS, Ceramic
+- ENS member resolution (like `john.dorg.ens`)
 - Or any other function we or others create later
 
 ## Project Safe
@@ -125,3 +141,9 @@ This can be derived from the last time Rep was distributed to the Passport. It c
 
 **How can I set some attribute/property on a Passport?**
 This can be implemented by an external (Registry) contract using the Passport ID as the key.
+
+**How will we collect data for accounting and other needs?**
+We can create a Dune Analytics dashboard, starting with the basics and expending it as needed over time. Here is a example: [Safe dashboard](https://dune.com/safe/ethereum).
+
+**How will we know whats going on in the DAO?**
+We can set up a Push (EPNS) chanel that triggers on certain events, for instance get a mobile notification every time there is a new proposal for the DAO, every time a new member is added or every time a new project is started.
