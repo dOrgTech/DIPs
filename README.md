@@ -1,4 +1,4 @@
-# dOrg on-chain
+# dOrg on-chain [WIP]
 
 ## Abstract
 
