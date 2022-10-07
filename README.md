@@ -12,6 +12,8 @@ The suggested core dOrg Primitives are Passport, Main Safe, Project Safe, Projec
 
 Also, as the DAO space evolves, it will be easy for us to start using and integrating with new solutions, and discard others.
 
+TODO: Zodiac Reality Module with rep == optimistic of-chain governance + challenge/dispute with rep-weighted vote on-chain
+
 ## DAO Improvement Proposals (DIP)
 
 In order for dORg to be in the for front of DAO landscape we want to propose setting up a standardized process for evolving the DAO.
