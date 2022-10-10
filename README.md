@@ -8,7 +8,7 @@ The DAO solution proposed is not static; it is a continually evolving organism i
 
 In addition to an initial starting point for the DAO, we propose the DAO Improvement Proposals (DIP) standard. The DIP will support the DAO's continued evolvement in standardizing how we suggest changes to the DAO structure.
 
-## DAO Improvement Proposals (DIP)
+## DAO Improvement Proposals (DIP) [[DIP-1](./DIPs/DIP-1.md)]
 
 In order for dOrg to be in the for front of DAO landscape we want to propose setting up a standardized process for evolving the DAO.
 
@@ -22,7 +22,7 @@ The core components are the Avatar, the Passports, and the Projects. These compo
 
 Also, as the DAO space evolves, it will be easy for us to start using and integrating with new solutions, and discard others.
 
-## Passport
+## Passport [[DIP-2](./DIPs/DIP-2.md)]
 
 The Passport is an ERC721 contract that is owned by the Avatar.
 
@@ -34,11 +34,11 @@ The Passport is the index for "everything" regarding a "member". For instance, t
 - ENS member resolution (like `john.dorg.ens`)
 - Or any other function we or others create later
 
-### Rep
+### Rep [[DIP-5](./DIPs/DIP-5.md)]
 
 Rep is a representation of each Passport Holders contribution to the DAO.
 
-## Project
+## Project [[DIP-3](./DIPs/DIP-3.md)]
 
 The Projects are the structure when forming both internal projects and external projects.
 
@@ -46,7 +46,7 @@ The Projects are the structure when forming both internal projects and external 
 
 The Project is a set of utilities used for managing a Project; It is used from the perspective of the DAO Avatar (The DAO), a project's Passport holder collectively (The Project), and a project's Passport holders individually (The Member). For instance, it is used for creating new Projects.
 
-## Avatar
+## Avatar [[DIP-4](./DIPs/DIP-4.md)]
 
 This is the entity that represents the collective wishes of all the DAO's Passport holders, weighted by their associated Rep.
 
