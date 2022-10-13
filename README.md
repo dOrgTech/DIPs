@@ -1,4 +1,4 @@
-# A evolving DOA structure [WIP]
+# An evolving DOA structure [WIP]
 
 ## Abstract
 
